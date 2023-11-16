@@ -1,64 +1,35 @@
-const readline = require('readline');
+//primeiramente o nome do héroi e a quantidade de experiência devem ser armazenados em variaveis distintas
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+let nomeDoHeroi = "Wolvenfaust"
+let xpDoHeroi = 10500
 
-function obterEntrada(pergunta) {
-    return new Promise((resolve) => {
-        rl.question(pergunta, (resposta) => {
-            resolve(resposta);
-        });
-    });
+
+//agora, uma nova nova variável deve ser criada  e uma estrutura de decisão deve ser utilizada 
+//para que possa ser feita a classificação do nível do nosso herói.
+
+let nivelDoHeroi
+
+if (xpDoHeroi < 1000){
+    nivelDoHeroi = "ferro"
+}else if (xpDoHeroi === 1001 || xpDoHeroi <= 2000){
+    nivelDoHeroi = "bronze"
+}else if (xpDoHeroi === 2001 || xpDoHeroi <= 5000){
+    nivelDoHeroi = "prata"
+}else if (xpDoHeroi === 6001 || xpDoHeroi <= 7000){
+    nivelDoHeroi = "ouro"
+}else if (xpDoHeroi === 7001 || xpDoHeroi <= 8000){
+    nivelDoHeroi = "platina"
+}else if (xpDoHeroi === 8001 || xpDoHeroi <= 9000){
+    nivelDoHeroi = "ascendente"
+}else if (xpDoHeroi === 9001 || xpDoHeroi <= 10000){
+    nivelDoHeroi = "imortal"
+}else{
+    nivelDoHeroi= "radiante"
 }
 
-async function main() {
-    let nomeDoHeroi;
-    let xpDoHeroi;
+//ao fim o programa deve informar ao usuário o ranking de seu personagem concatenando
+// com o nome de seu personagem.
 
-    do {
-        nomeDoHeroi = await obterEntrada("Digite o nome do herói: ");
+console.log("O herói " + nomeDoHeroi + "está no nível " + nivelDoHeroi)
 
-        if (!nomeDoHeroi) {
-            console.log("Nome inválido. Por favor, digite um nome válido.");
-            continue;
-        }
 
-        do {
-            const entradaXP = await obterEntrada("Digite o número de XP do herói: ");
-            xpDoHeroi = parseInt(entradaXP);
-
-            if (isNaN(xpDoHeroi)) {
-                console.log("XP inválida. Por favor, digite um número válido.");
-            }
-        } while (isNaN(xpDoHeroi));
-
-    } while (!nomeDoHeroi);
-
-    let nivelDoHeroi;
-
-    if (xpDoHeroi < 1000) {
-        nivelDoHeroi = "Ferro";
-    } else if (xpDoHeroi <= 2000) {
-        nivelDoHeroi = "Bronze";
-    } else if (xpDoHeroi <= 5000) {
-        nivelDoHeroi = "Prata";
-    } else if (xpDoHeroi <= 7000) {
-        nivelDoHeroi = "Ouro";
-    } else if (xpDoHeroi <= 8000) {
-        nivelDoHeroi = "Platina";
-    } else if (xpDoHeroi <= 9000) {
-        nivelDoHeroi = "Ascendente";
-    } else if (xpDoHeroi <= 10000) {
-        nivelDoHeroi = "Imortal";
-    } else {
-        nivelDoHeroi = "Radiante";
-    }
-
-    console.log("O herói " + nomeDoHeroi + " está no nível " + nivelDoHeroi);
-
-    rl.close();
-}
-
-main();
