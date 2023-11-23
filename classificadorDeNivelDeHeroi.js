@@ -1,12 +1,10 @@
 //primeiramente o nome do héroi e a quantidade de experiência devem ser armazenados em variaveis distintas
-
 let nomeDoHeroi = "Wolvenfaust"
 let xpDoHeroi = 10500
 
 
 //agora, uma nova nova variável deve ser criada  e uma estrutura de decisão deve ser utilizada 
 //para que possa ser feita a classificação do nível do nosso herói.
-
 let nivelDoHeroi
 
 if (xpDoHeroi < 1000){
@@ -27,9 +25,7 @@ if (xpDoHeroi < 1000){
     nivelDoHeroi= "radiante"
 }
 
-//ao fim o programa deve informar ao usuário o ranking de seu personagem concatenando
-// com o nome de seu personagem.
-
+//ao fim, o programa deve informar ao usuário o ranking de seu personagem concatenando com o nome de seu personagem.
 console.log("O herói " + nomeDoHeroi + "está no nível " + nivelDoHeroi)
 
 
